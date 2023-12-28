@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HealthApp.Models
 {
@@ -15,5 +16,12 @@ namespace HealthApp.Models
         public int DoctorId { get; set; }
         public string Description { get; set; }
         public int DepartmentId { get; set; }
+
+        [DefaultValue(true)]
+        public bool IsConfirm { get; set; }
+        [DefaultValue(false)]
+        public bool IsVisited { get; set; }
+        [DefaultValue(false)]
+        public bool IsPaymentCompleted { get; set; }
     }
 }

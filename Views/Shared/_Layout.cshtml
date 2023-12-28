@@ -90,7 +90,10 @@
                                                 </ul>
                                             </li>
                                             <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                                            <li><a href="/Identity/Account/Register">Signup</a></li>
+                                            <li><a href="/Identity/Account/Login">Login</a></li>
                                         </ul>
+                                        @* <partial name="_LoginPartial" /> *@
                                     </nav>
                                 </div>
                                 <div class="header-right-btn f-right d-none d-lg-block ml-15">
@@ -143,6 +146,8 @@
                                                         <li><a asp-controller="Home" asp-action="Service">Services</a></li>
                                                         <li><a asp-controller="Home" asp-action="Blog">Blog</a></li>
                                                         <li><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                                                       @*  <li><a href="~/Identity/Account/Register">Register</a></li>
+                                                        <li><a href="~/Identity/Account/Login">Login</a></li> *@
                                                     </ul>
                                                 </nav>
                                             </div>
@@ -206,12 +211,14 @@
             </div>
         </div>
     </footer>
+    <div class="elfsight-app-401d4425-bde5-46a3-bb89-ceb65e4224a5" data-elfsight-app-lazy ></div>
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+
     <!-- Scroll Up -->
-    <div id="back-top">
+    <div id="back-top" style="margin:1rem;padding:1rem;">
         <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
-
-
+   
     @*     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script> *@

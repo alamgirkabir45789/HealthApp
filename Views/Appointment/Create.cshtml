@@ -1,7 +1,20 @@
 ﻿@model HealthApp.Models.Appointment
-
 @{
     ViewData["Title"] = "Create";
+    var doctors = new List<Doctor>()
+            {
+                new Doctor() {Id=5, Name = "Alamgir", Email = "alamgir@gmail.com", ContactNo = "434324", IsActive = true },
+                new Doctor() { Id=4,Name = "Kabir", Email = "kabir@gmail.com", ContactNo = "434324", IsActive = true },
+                new Doctor() { Id=6,Name = "Asif", Email = "asif@gmail.com", ContactNo = "434324", IsActive = true },
+            };
+    var departments = new List<Department>()
+    {
+        new Department(){Id=4,Name="Medicine"},
+        new Department(){Id=48,Name="Surgery"},
+        new Department(){Id=41,Name="Gynae"},
+        new Department(){Id=43,Name="Paediatrics"},
+    };
+
 }
 
 
@@ -15,7 +28,7 @@
                     <div class="col-xl-7 col-lg-8 col-md-10 ">
                         <div class="hero-wrapper">
                             <div class="hero__caption">
-                                <h1 data-animation="fadeInUp" data-delay=".3s">contact</h1>
+                                <h1 data-animation="fadeInUp" data-delay=".3s">Make an Appointment</h1>
                                 <p data-animation="fadeInUp" data-delay=".6s">Almost before we knew it, we<br> had left the ground</p>
                             </div>
                         </div>
@@ -72,27 +85,33 @@
                                 <span asp-validation-for="VisitingDate" class="text-danger"></span>
                             </div>
                         </div>    
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" style="margin-bottom:3rem;">
                             <div class="form-group">
-                                <label asp-for="DoctorId" class="control-label"></label>
-                                <input asp-for="DoctorId" class="form-control" />
-                                <span asp-validation-for="DoctorId" class="text-danger"></span>
-                            </div>
-                        </div>       
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label asp-for="Description" class="control-label"></label>
-                                <input asp-for="Description" class="form-control" />
-                                <span asp-validation-for="Description" class="text-danger"></span>
-                            </div>
-                        </div>        
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label asp-for="DepartmentId" class="control-label"></label>
-                                <input asp-for="DepartmentId" class="form-control" />
+                                <label class="control-label">Department</label>
+                                <select asp-for="DepartmentId" required class="form-control w-100">
+                                    <option value="">Select Department</option>
+                                    @foreach (var item in departments)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
                                 <span asp-validation-for="DepartmentId" class="text-danger"></span>
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Doctor</label>
+                                <select asp-for="DoctorId" required class="form-control w-100">
+                                    <option value="">Select Doctor</option>
+                                    @foreach (var item in doctors)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+                                <span asp-validation-for="DoctorId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        
                         <div class="col-12">
                             <div class="form-group">
                                 <label asp-for="Address" class="control-label"></label>
@@ -100,9 +119,18 @@
                                 <span asp-validation-for="Address" class="text-danger"></span>
                             </div>
                         </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label asp-for="Description" class="control-label"></label>
+                                <textarea asp-for="Description" rows="5" class="form-control" ></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>        
+                      
+                       
                     </div>
                     <div class="form-group mt-3">
-                        <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                        <button type="submit" class="button button-contactForm boxed-btn">Submit</button>
                     </div>
                 </form>
             </div>

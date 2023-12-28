@@ -11,5 +11,7 @@ namespace HealthApp.Data
         {
         }
         public DbSet<HealthApp.Models.Appointment>? Appointment { get; set; }
+        public DbSet<Doctor> Doctor { get; set; }
+        public DbSet<Department> Department { get; set; }
     }
 }
